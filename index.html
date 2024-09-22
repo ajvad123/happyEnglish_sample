@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy English CRM</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #e94560;
+            --button-hover-color: #ff6f61;
+            --light-gray: #f8f9fa;
+            --dark-blue: #162447;
+            --white: #fff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            background-color: var(--light-gray);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding-top: 70px;
+            /* Space for fixed header */
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            /* Center the content horizontally */
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            /* Apply the new font */
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin: 0;
+            color: var(--secondary-color);
+            /* Match color with theme */
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-button {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            font-family: 'Poppins', sans-serif;
+            /* Ensure button uses the same font */
+        }
+
+        .nav-button:hover {
+            background-color: var(--button-hover-color);
+            transform: scale(1.05);
+        }
+
+        /* Main Layout */
+        .main-container {
+            display: flex;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            width: 250px;
+            box-shadow: var(--shadow);
+            height: 38vh;
+            position: fixed;
+            overflow-y: auto;
+            margin-top: 60px;
+        }
+        .sidebar:hover{
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            text-align: center
+        }
+
+        .sidebar .status-box {
+            background-color: var(--dark-blue);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .sidebar .status-box:hover{
+
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        /* Form Container */
+        .form-container {
+            margin-left: 400px;
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .form-container h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            text-align: center;
+            color: var(--dark-blue);
+            margin-top: 3px;
+            letter-spacing: 1px;
+        }
+
+        .form-container .form-control,
+        .form-container .form-select {
+            padding: 10px;
+            font-family: 'Roboto', sans-serif;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 5px var(--secondary-color);
+        }
+        .form-control:hover, .form-select:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .form-space {
+
+            margin-left: 50px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 80%;
+            padding: 12px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--button-hover-color);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 15px 0;
+            width: 100%;
+            bottom: 0;
+            margin-top: 5px;
+        }
+
+        .footer-info {
+            color: var(--secondary-color);
+            font-size: 0.8rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+                /* Adjust padding for smaller header */
+            }
+
+            .main-container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .sidebar {
+                width: 90%;
+                margin-bottom: 20px;
+                height: auto;
+                position: relative;
+            }
+
+            .form-container {
+                margin-left: 0;
+                padding: 5px;
+            }
+
+            .form-space {
+
+                margin-left: 0px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .form-container {
+                padding: 10px;
+            }
+
+            .form-control,
+            .form-select {
+                max-width: 90%;
+            }
+
+            header h1 {
+                font-size: 1.25rem;
+            }
+
+            .btn-primary {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1 class="heading">Happy English CRM</h1>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h3>Navigations</h3>
+            <div class="status-box">
+                <!-- Status content goes here -->
+                <a style="text-decoration: none; color: #f8f9fa;" href="{{ url_for('report') }}" class="">Report</a>
+            </div>
+            <div class="status-box">
+                <span id="username">Guest</span>
+            </div>
+        </div>
+
+        <!-- Form Container -->
+        <div style="align-items: center;justify-content: center;" class="form-container">
+            <div class="form-space">
+
+                <h2>Follow Up Form</h2>
+                <form method="POST" action="/save_flp">
+                    <!-- Name and Mobile -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Name</label>
+                            <input style="margin-left: 150px;width: 60%;" type="text" class="form-control" id="name"
+                                name="name" placeholder="Enter name" required>
+                        </div>
+                        <div class="col-md-6" style="margin-top: 5px;">
+                            <label for="mobile" class="form-label">Mobile</label>
+                            <input style="margin-left: 145px;width: 60%;" type="tel" class="form-control" id="mobile"
+                                name="mobile" placeholder="Enter mobile number"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                        </div>
+                    </div>
+
+                    <!-- Follow Up -->
+                    <div class="form-group mb-3">
+                        <label class="form-label">Follow Up</label>
+                        <div class="d-flex flex-wrap">
+                            <div class="form-check me-3">
+                                <input class="form-check-input" type="checkbox" id="basicDetails" name="follow_up"
+                                    value="Basic Details">
+                                <label class="form-check-label" for="basicDetails">Basic Details</label>
+                            </div>
+                            <div class="form-check me-3">
+                                <input class="form-check-input" type="checkbox" id="calling" name="follow_up"
+                                    value="Calling">
+                                <label class="form-check-label" for="calling">Calling</label>
+                            </div>
+                            <div class="form-check me-3">
+                                <input class="form-check-input" type="checkbox" id="dailyFollowUp" name="follow_up"
+                                    value="Daily Follow Up">
+                                <label class="form-check-label" for="dailyFollowUp">Daily Follow Up</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conversion and Course -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="conversion" class="form-label">Conversion</label>
+                            <select style="margin-left: 110px;width: 60%;" class="form-select" id="conversion"
+                                name="conversion" required>
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div style="margin-top: 5px;" class="col-md-6">
+                            <label for="course" class="form-label">Course</label>
+                            <select style="margin-left: 140px;width: 60%;" class="form-select" id="course" name="course"
+                                required>
+                                <option value="" disabled selected>Select a course</option>
+                                <option value="Course1">Course1</option>
+                                <option value="Course2">Course2</option>
+                                <option value="Course3">Course3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Batch No and Payment -->
+                    <div class="row mb-3">
+                        <div style="margin-top: 5px;" class="col-md-6">
+                            <label for="batchNo" class="form-label">Batch No</label>
+                            <input style="margin-left: 125px; width: 60%;" type="text" class="form-control" id="batchNo"
+                                name="batch_no" placeholder="Enter batch no" required>
+                        </div>
+                        <div style="margin-top: 5px;" class="col-md-6">
+                            <label for="payment" class="form-label">Payment</label>
+                            <input style="margin-left: 127px; width: 60%;" type="text" class="form-control" id="payment"
+                                name="payment" placeholder="Enter payment amount" required>
+                        </div>
+                    </div>
+
+                    <!-- Follow Up Date and Next Follow Up Date -->
+                    <div class="row mb-3">
+                        <div style="margin-top: 5px;" class="col-md-6">
+                            <label for="followUpDate" class="form-label">Follow Up Date</label>
+                            <input style="margin-left: 84px;width: 60%;" type="date" class="form-control"
+                                id="followUpDate" name="follow_up_date" required>
+                        </div>
+                        <div style="margin-top: 5px;" class="col-md-6">
+                            <label for="nextFollowUpDate" class="form-label">Next Follow Up Date</label>
+                            <input style="margin-left: 49px;width: 60%;" type="date" class="form-control"
+                                id="nextFollowUpDate" name="next_follow_up_date" required>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div style="margin-top: 10px;margin-left: 125px;" class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-info">&copy; 2024 Happy English CRM. All rights reserved.</p>
+        <p style=" color: #f1c40f;"class="footer-info">Powered by ZenoxSoftwares</p>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Get the username from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+
+        // Set the username in the header
+        document.getElementById('username').innerText = username ? `Logged In: ${username}` : 'Logged In: Guest';
+    </script>
+
+</body>
+
+</html>
