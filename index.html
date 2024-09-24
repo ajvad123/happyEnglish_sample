@@ -124,12 +124,12 @@
             margin-left: 400px;
             background-color: var(--white);
             border-radius: 12px;
-            padding: 40px;
+            padding: 80px;
             box-shadow: var(--shadow);
             width: 100%;
             max-width: 1200px;
         }
-
+        
         .form-container h2 {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
@@ -138,39 +138,50 @@
             margin-top: 3px;
             letter-spacing: 1px;
         }
+        .form-group {
+            margin-bottom: 1rem;
+        }
 
-        .form-container .form-control,
-        .form-container .form-select {
-            padding: 10px;
-            font-family: 'Roboto', sans-serif;
+        .form-label {
+            font-weight: 600;
+            color: #333;
+            display: block;
+            margin-bottom: 0.5rem;
+        
+        }
+
+        .form-control {
             border-radius: 8px;
             border: 1px solid #dee2e6;
+            padding: 12px;
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 60%;
+            width: 97%;
             transition: all 0.3s ease;
         }
-      
-
-        .form-container:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        .form-select{
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
         }
 
-        .form-control:focus,
-        .form-select:focus {
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 5px var(--secondary-color);
-        }
         .form-control:hover, .form-select:hover {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-
-        .form-space {
-
-            margin-left: 50px;
+        .form-check {
+            margin-bottom: 10px;
         }
 
+        .form-check-input {
+            margin-right: 10px;
+        }
         .btn-primary {
             background-color: var(--secondary-color);
             border: none;
@@ -180,6 +191,7 @@
             width: 80%;
             padding: 12px;
             font-family: 'Poppins', sans-serif;
+            margin-left: 80px;
         }
 
         .btn-primary:hover {
@@ -224,13 +236,19 @@
             }
 
             .form-container {
-                margin-left: 0;
-                padding: 5px;
+            margin-left: 0;
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: var(--shadow);
+            width: 90%;
+            max-width: 1200px;
             }
 
             .form-space {
 
                 margin-left: 0px;
+                padding: 10px;
             }
 
             header h1 {
@@ -241,11 +259,14 @@
         @media (max-width: 576px) {
             .form-container {
                 padding: 10px;
+                margin-left: 10px;
             }
 
-            .form-control,
+            .form-control{
+                width: 93%;
+            }
             .form-select {
-                max-width: 40%;
+              width: 100%;
             }
 
             header h1 {
@@ -255,6 +276,7 @@
             .btn-primary {
                 font-size: 0.9rem;
                 padding: 10px;
+                margin-left: 30px;
             }
         }
     </style>
@@ -285,99 +307,61 @@
             <div class="form-space">
 
                 <h2>Follow Up Form</h2>
-                <form method="POST" action="/save_flp">
-                    <!-- Name and Mobile -->
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="name" class="form-label">Name</label>
-                            <input style="margin-left: 150px;" type="text" class="form-control" id="name"
-                                name="name" placeholder="Enter name" required>
-                        </div>
-                        <div class="col-md-6" style="margin-top: 5px;">
-                            <label for="mobile" class="form-label">Mobile</label>
-                            <input style="margin-left: 145px;" type="tel" class="form-control" id="mobile"
-                                name="mobile" placeholder="Enter mobile number"
-                                oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
-                        </div>
+                <form method="POST" action="/save_flp" class="form-inline">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
                     </div>
-
-                    <!-- Follow Up -->
-                    <div class="form-group mb-3">
+                    <div class="form-group">
+                        <label for="mobile" class="form-label">Mobile</label>
+                        <input type="tel" class="form-control" id="mobile" name="mobile" placeholder="Enter mobile number" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                    </div>
+                    <div class="form-group">
                         <label class="form-label">Follow Up</label>
-                        <div class="d-flex flex-wrap">
-                            <div class="form-check me-3">
-                                <input class="form-check-input" type="checkbox" id="basicDetails" name="follow_up"
-                                    value="Basic Details">
-                                <label class="form-check-label" for="basicDetails">Basic Details</label>
-                            </div>
-                            <div class="form-check me-3">
-                                <input class="form-check-input" type="checkbox" id="calling" name="follow_up"
-                                    value="Calling">
-                                <label class="form-check-label" for="calling">Calling</label>
-                            </div>
-                            <div class="form-check me-3">
-                                <input class="form-check-input" type="checkbox" id="dailyFollowUp" name="follow_up"
-                                    value="Daily Follow Up">
-                                <label class="form-check-label" for="dailyFollowUp">Daily Follow Up</label>
-                            </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="basicDetails" name="follow_up" value="Basic Details">
+                            <label class="form-check-label" for="basicDetails">Basic Details</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="calling" name="follow_up" value="Calling">
+                            <label class="form-check-label" for="calling">Calling</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="dailyFollowUp" name="follow_up" value="Daily Follow Up">
+                            <label class="form-check-label" for="dailyFollowUp">Daily Follow Up</label>
                         </div>
                     </div>
-
-                    <!-- Conversion and Course -->
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="conversion" class="form-label">Conversion</label>
-                            <select style="margin-left: 110px;" class="form-select" id="conversion"
-                                name="conversion" required>
-                                <option value="" disabled selected>Select an option</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-                        <div style="margin-top: 5px;" class="col-md-6">
-                            <label for="course" class="form-label">Course</label>
-                            <select style="margin-left: 140px;" class="form-select" id="course" name="course"
-                                required>
-                                <option value="" disabled selected>Select a course</option>
-                                <option value="Course1">Course1</option>
-                                <option value="Course2">Course2</option>
-                                <option value="Course3">Course3</option>
-                            </select>
-                        </div>
+                    <div class="form-group">
+                        <label for="conversion" class="form-label">Conversion</label>
+                        <select class="form-select" id="conversion" name="conversion" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
                     </div>
-
-                    <!-- Batch No and Payment -->
-                    <div class="row mb-3">
-                        <div style="margin-top: 5px;" class="col-md-6">
-                            <label for="batchNo" class="form-label">Batch No</label>
-                            <input style="margin-left: 125px;" type="text" class="form-control" id="batchNo"
-                                name="batch_no" placeholder="Enter batch no" required>
-                        </div>
-                        <div style="margin-top: 5px;" class="col-md-6">
-                            <label for="payment" class="form-label">Payment</label>
-                            <input style="margin-left: 127px;" type="text" class="form-control" id="payment"
-                                name="payment" placeholder="Enter payment amount" required>
-                        </div>
+                    <div class="form-group">
+                        <label for="course" class="form-label">Course</label>
+                        <select class="form-select" id="course" name="course" required>
+                            <option value="" disabled selected>Select a course</option>
+                            <option value="Course1">Course1</option>
+                            <option value="Course2">Course2</option>
+                            <option value="Course3">Course3</option>
+                        </select>
                     </div>
-
-                    <!-- Follow Up Date and Next Follow Up Date -->
-                    <div class="row mb-3">
-                        <div style="margin-top: 5px;" class="col-md-6">
-                            <label for="followUpDate" class="form-label">Follow Up Date</label>
-                            <input style="margin-left: 84px;" type="date" class="form-control"
-                                id="followUpDate" name="follow_up_date" required>
-                        </div>
-                        <div style="margin-top: 5px;" class="col-md-6">
-                            <label for="nextFollowUpDate" class="form-label">Next Follow Up Date</label>
-                            <input style="margin-left: 49px;" type="date" class="form-control"
-                                id="nextFollowUpDate" name="next_follow_up_date" required>
-                        </div>
+                    <div class="form-group">
+                        <label for="batchNo" class="form-label">Batch No</label>
+                        <input type="text" class="form-control" id="batchNo" name="batchNo" placeholder="Enter batch number" required>
                     </div>
-
-                    <!-- Submit Button -->
-                    <div style="margin-top: 10px;margin-left: 125px;" class="text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="form-group">
+                        <label for="trainer" class="form-label">Trainer</label>
+                        <select class="form-select" id="trainer" name="trainer" required>
+                            <option value="" disabled selected>Select a trainer</option>
+                            <option value="Name1">Name1</option>
+                            <option value="Name2">Name2</option>
+                            <option value="Name3">Name3</option>
+                        </select>
                     </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
 
