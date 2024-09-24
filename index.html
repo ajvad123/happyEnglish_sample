@@ -146,9 +146,10 @@
             border-radius: 8px;
             border: 1px solid #dee2e6;
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 100%;
+            width: 60%;
             transition: all 0.3s ease;
         }
+      
 
         .form-container:hover {
             transform: scale(1.02);
@@ -244,7 +245,7 @@
 
             .form-control,
             .form-select {
-                max-width: 60%;
+                max-width: 50%;
             }
 
             header h1 {
@@ -289,12 +290,12 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="name" class="form-label">Name</label>
-                            <input style="margin-left: 150px;width: 60%;" type="text" class="form-control" id="name"
+                            <input style="margin-left: 150px;" type="text" class="form-control" id="name"
                                 name="name" placeholder="Enter name" required>
                         </div>
                         <div class="col-md-6" style="margin-top: 5px;">
                             <label for="mobile" class="form-label">Mobile</label>
-                            <input style="margin-left: 145px;width: 60%;" type="tel" class="form-control" id="mobile"
+                            <input style="margin-left: 145px;" type="tel" class="form-control" id="mobile"
                                 name="mobile" placeholder="Enter mobile number"
                                 oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                         </div>
@@ -326,7 +327,7 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="conversion" class="form-label">Conversion</label>
-                            <select style="margin-left: 110px;width: 60%;" class="form-select" id="conversion"
+                            <select style="margin-left: 110px;" class="form-select" id="conversion"
                                 name="conversion" required>
                                 <option value="" disabled selected>Select an option</option>
                                 <option value="Yes">Yes</option>
@@ -335,7 +336,7 @@
                         </div>
                         <div style="margin-top: 5px;" class="col-md-6">
                             <label for="course" class="form-label">Course</label>
-                            <select style="margin-left: 140px;width: 60%;" class="form-select" id="course" name="course"
+                            <select style="margin-left: 140px;" class="form-select" id="course" name="course"
                                 required>
                                 <option value="" disabled selected>Select a course</option>
                                 <option value="Course1">Course1</option>
@@ -349,12 +350,12 @@
                     <div class="row mb-3">
                         <div style="margin-top: 5px;" class="col-md-6">
                             <label for="batchNo" class="form-label">Batch No</label>
-                            <input style="margin-left: 125px; width: 60%;" type="text" class="form-control" id="batchNo"
+                            <input style="margin-left: 125px;" type="text" class="form-control" id="batchNo"
                                 name="batch_no" placeholder="Enter batch no" required>
                         </div>
                         <div style="margin-top: 5px;" class="col-md-6">
                             <label for="payment" class="form-label">Payment</label>
-                            <input style="margin-left: 127px; width: 60%;" type="text" class="form-control" id="payment"
+                            <input style="margin-left: 127px;" type="text" class="form-control" id="payment"
                                 name="payment" placeholder="Enter payment amount" required>
                         </div>
                     </div>
@@ -363,12 +364,12 @@
                     <div class="row mb-3">
                         <div style="margin-top: 5px;" class="col-md-6">
                             <label for="followUpDate" class="form-label">Follow Up Date</label>
-                            <input style="margin-left: 84px;width: 60%;" type="date" class="form-control"
+                            <input style="margin-left: 84px;" type="date" class="form-control"
                                 id="followUpDate" name="follow_up_date" required>
                         </div>
                         <div style="margin-top: 5px;" class="col-md-6">
                             <label for="nextFollowUpDate" class="form-label">Next Follow Up Date</label>
-                            <input style="margin-left: 49px;width: 60%;" type="date" class="form-control"
+                            <input style="margin-left: 49px;" type="date" class="form-control"
                                 id="nextFollowUpDate" name="next_follow_up_date" required>
                         </div>
                     </div>
